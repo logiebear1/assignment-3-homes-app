@@ -1,4 +1,3 @@
-```markdown
 # Assignment 3 – Angular Homes App
 
 **Due Date:** March 18 (Wednesday), 11:59 PM  
