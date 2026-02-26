@@ -1,4 +1,4 @@
-name: Deploy Angular to GitHub Pages
+name: Deploy Angular App to GitHub Pages
 
 on:
   push:
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
@@ -24,13 +24,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
+      - name: Build Angular app
         run: npm run build -- --configuration production
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist/assignment-3-homes-app  # Change if your dist folder is different (e.g., dist/assignment-3-homes-app/browser)
+          path: dist/assignment-3-homes-app  # ← CHANGE THIS if your dist folder is different!
+          # Run `ng build` locally once → see what folder appears (often dist/assignment-3-homes-app or dist/assignment-3-homes-app/browser)
 
   deploy:
     needs: build
